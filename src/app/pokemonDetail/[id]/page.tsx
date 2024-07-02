@@ -15,7 +15,7 @@ const PokemonDetail = async ({
   params: { id: string };
 }) => {
   const data = await getData(id);
-  return <div className="text-white">{JSON.stringify(data)}</div>;
+  return <div className="text-white">{data.id}</div>;
 };
 
 export default PokemonDetail;
