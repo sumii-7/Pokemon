@@ -4,6 +4,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "../app/globals.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const PokemonList = () => {
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
@@ -23,17 +24,19 @@ const PokemonList = () => {
   return (
     <div className=" flex justify-center flex-wrap gap-3">
       {pokemonList.map((value) => (
-        <div key={value.id} className="border border-white h-60 w-60">
-          <Image
-            src={value.sprites.front_default}
-            width={100}
-            height={100}
-            alt="pokemon-image"
-          />
-
-          <p>{value.korean_name}</p>
-          <p>{value.id}</p>
-        </div>
+        <Link href={`/pokemonDetail/${value.id}`} key={value.id}>
+          <div className="border border-white h-40 w-32 text-center">
+            <p className="text-sm">Num.{value.id}</p>
+            <Image
+              src={value.sprites.front_default}
+              width={100}
+              height={100}
+              alt="pokemon-image"
+              className="mx-auto"
+            />
+            <p>{value.korean_name}</p>
+          </div>
+        </Link>
       ))}
     </div>
   );
