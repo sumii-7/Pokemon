@@ -15,7 +15,7 @@ const PokemonDetail = async ({
   const data = await getData(id);
 
   return (
-    <div className="bg-white w-2/4 mx-auto text-center p-4">
+    <div className="bg-white w-2/4 mx-auto text-center p-4 rounded-2xl">
       <Image
         src={data.sprites.front_default}
         width={150}
